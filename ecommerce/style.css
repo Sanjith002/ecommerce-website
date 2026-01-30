@@ -1066,6 +1066,7 @@ nav {
   flex-direction: column;
   display: none;
   border-top: 1px solid white;
+  padding-bottom: 20px;
 }
 
 .block {
@@ -1081,14 +1082,14 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0px 10px;
-  padding-top: 7px;
+  padding-top: 10px;
 }
 
 .grandtotal {
   display: flex;
   justify-content: space-between;
   padding: 0px 10px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .Shipping {
@@ -1106,7 +1107,7 @@ nav {
   background-color: white;
   color: black;
   border: 1px solid white;
-  margin-top: 8px;
+  margin-top: 10px;
   cursor: pointer;
   font-weight: bold;
   font-size: 13px;
