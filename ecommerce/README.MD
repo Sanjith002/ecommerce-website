@@ -25,10 +25,9 @@ A responsive e-commerce website built using **HTML, CSS, and JavaScript** with a
 
 ---
 
-## ▶️ How to Run
+## 🌐 Live Demo
 
-1. Clone the repository or download the ZIP file  
-2. Open `index.html` in any web browser  
+👉 https://baggyfashion.netlify.app/ 
 
 ---
 
