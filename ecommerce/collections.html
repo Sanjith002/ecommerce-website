@@ -1,0 +1,2399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collections</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- nav & add to card -->
+    <div class="add_to_cart">
+      <div class="add_to_cart_nav">
+        <h1 class="logo">Baggy</h1>
+        <div class="navbar_collection">
+          <div class="navbar">
+            <p class="navbarlink"><a href="index.html">HOME</a></p>
+            <p class="navbarlink"><a href="collections.html">COLLECTIONS</a></p>
+            <p class="navbarlink"><a href="login.html">SIGN IN</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="add_to_cart_right">
+        <div class="sort-box">
+          <button class="sort-btn">
+            SORT <span><i class="fa-solid fa-angle-down"></i></span>
+          </button>
+          <ul class="sort-menu">
+            <li data-target="mens-shirts">Mens Shirts</li>
+            <li data-target="mens-pants">Mens Pants</li>
+            <li data-target="mens-tshirts">Mens T-Shirts</li>
+            <li data-target="hoodies & Sweatshirt">Hoodies & Sweatshirts</li>
+          </ul>
+        </div>
+        <div class="add_to_cart_icone" onclick="opencart()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+            <path
+              d="M0 8C0-5.3 10.7-16 24-16l45.3 0c27.1 0 50.3 19.4 55.1 46l.4 2 412.7 0c20 0 35.1 18.2 31.4 37.9L537.8 235.8c-5.7 30.3-32.1 52.2-62.9 52.2l-303.6 0 5.1 28.3c2.1 11.4 12 19.7 23.6 19.7L456 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-255.9 0c-34.8 0-64.6-24.9-70.8-59.1L77.2 38.6c-.7-3.8-4-6.6-7.9-6.6L24 32C10.7 32 0 21.3 0 8zM160 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm224 0a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM336 78.4c-13.3 0-24 10.7-24 24l0 33.6-33.6 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l33.6 0 0 33.6c0 13.3 10.7 24 24 24s24-10.7 24-24l0-33.6 33.6 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-33.6 0 0-33.6c0-13.3-10.7-24-24-24z"
+            />
+          </svg>
+          <span style="font-weight: bold" id="cart-count">0</span>
+        </div>
+        <div class="navbar-menu-collection">
+          <i class="fa-solid fa-bars" onclick="opennav2()"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- cart page -->
+    <div class="slide-cart" id="slideCart">
+      <!-- Cart Header -->
+      <div class="cart-header">
+        <span class="cart-header-title">MY CART</span>
+        <div onclick="closeCart()"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+
+      <!-- Cart Items -->
+      <div class="cart-items" id="cartItems">
+        <p class="empty">YOUR CART IS EMPTY</p>
+        <!-- JS will insert items here -->
+      </div>
+
+      <!-- Cart Footer -->
+      <div class="cart-footer">
+        <div class="cart-row">
+          <div class="Subtotal">
+            <span style="font-weight: 500; color: #ffffff">SUBTOTAL</span>
+            <span style="font-family: sans-serif"
+              >₹<span id="cartTotal">0</span></span
+            >
+          </div>
+          <div class="Shipping">
+            <span style="font-weight: 500; color: #ffffff">SHIPPING COSTS</span>
+            <span>FREE</span>
+          </div>
+          <hr />
+          <div class="grandtotal">
+            <span style="font-weight: 500; color: #ffffff">GRAND TOTAL</span>
+            <span style="font-family: sans-serif"
+              >₹<span id="cartTotal2">0</span></span
+            >
+          </div>
+        </div>
+        <div class="checkout-btn">
+          <button onclick="placeOrder()">PLACE ORDER</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- order popup -->
+    <div class="orderPopup hide">
+      <div class="popuptop">
+        <div class="popup_left">
+          <span class="popup_left_icone">
+            <svg
+              width="24"
+              height="28"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.5 12.5L10 16L17.5 8.5"
+                fill="none"
+                stroke="white"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span>Order Placed</span>
+        </div>
+        <div onclick="orderRemovePopup()" class="orderCancelBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            width="12"
+          >
+            <path
+              d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <!--side-navbar-->
+    <div class="side_collection">
+      <p class="xicone">
+        <i class="fa-solid fa-xmark" onclick="closenav2()"></i>
+      </p>
+
+      <div class="side-navbar">
+        <p class="side-navbar-link"><a href="index.html">HOME</a></p>
+        <p class="side-navbar-link">
+          <a href="collections.html">COLLECTIONS</a>
+        </p>
+        <p class="side-navbar-link"><a href="login.html">SIGN IN</a></p>
+      </div>
+    </div>
+
+    <!-- collection -->
+    <div>
+      <div class="collection_container">
+        <!-- shirts -->
+        <section id="mens-shirts">
+          <h2>MENS SHIRTS</h2>
+          <div class="collection_card">
+            <div class="collection">
+              <img src="/mens/download (2).jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Azure Casual Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹799</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      1,
+                      'Azure Casual Shirt',
+                      799,
+                      '/mens/download (2).jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img
+                src="/mens/download (4) (1).jpg"
+                width="200px"
+                height="200px"
+              />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Burgundy Urban Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">16%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹749</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      2,
+                      'Burgundy Urban Shirt',
+                      749,
+                      '/mens/download (4) (1).jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/download (6).jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Pure White Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">22%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(3, 'White Shirt', 699, '/mens/download (6).jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/download (10).jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Blush Street Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">15%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹849</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      4,
+                      'Blush Street Shirt',
+                      849,
+                      '/mens/download (10).jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img
+                src="/mens/9d1da3f54b87af631fdb62fec7abcccb (1).jpg"
+                width="200px"
+                height="200px"
+              />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Mocha Formal Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹899</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      5,
+                      'Mocha Formal Shirt',
+                      899,
+                      '/mens/9d1da3f54b87af631fdb62fec7abcccb (1).jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img
+                src="/mens/ef7842385fccd6028ead909a3827e019.jpg"
+                width="200px"
+                height="200px"
+              />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Olive Casual Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">11%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹799</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      6,
+                      'Olive Casual Shirt',
+                      799,
+                      '/mens/ef7842385fccd6028ead909a3827e019.jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img
+                src="/mens/aeb61e99d7a2013b4eedba1a156eba1c.jpg"
+                width="200px"
+                height="200px"
+              />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Beige Comfort Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">15%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹849</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      7,
+                      'Beige Comfort Shirt',
+                      849,
+                      '/mens/aeb61e99d7a2013b4eedba1a156eba1c.jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img
+                src="/mens/c1c430e8bfc7d91d5213debde65d8036 (1).jpg"
+                width="200px"
+                height="200px"
+              />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Textured Blue Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">28%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹649</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      8,
+                      'Textured Blue Shirt',
+                      649,
+                      '/mens/c1c430e8bfc7d91d5213debde65d8036 (1).jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/3.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Chocolate Brown Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹899</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(9, 'Chocolate Brown Shirt', 899, '/mens/3.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/1.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Sand Formal Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">5%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹949</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(10, 'Sand Formal Shirt', 949, '/mens/1.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/4.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Charcoal Urban Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">23%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(11, 'Charcoal Urban Shirt', 699, '/mens/4.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/7.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Denim Blue Shirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹799</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(12, 'Denim Blue Shirt', 799, '/mens/7.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="mens-pants">
+          <!-- pants -->
+          <h2>MENS PANTS</h2>
+          <div class="collection_card">
+            <div class="collection">
+              <img src="/mens/p1.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Urban Stone Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">16%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹749</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(13, 'Urban Stone Pants', 749, '/mens/p1.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p2.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Midnight Core Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹899</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(14, 'Midnight Core Pants', 899, '/mens/p2.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p3.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Forest Fade Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹799</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(15, 'Forest Fade Pants', 799, '/mens/p3.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p4.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Ivory Drift Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">15%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹849</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(16, 'Ivory Drift Pants', 849, '/mens/p4.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p5.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Ash Street Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">23%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(17, 'Ash Street Pants', 699, '/mens/p5.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p6.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Olive Pulse Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹899</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(18, 'Olive Pulse Pants', 899, '/mens/p6.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p7.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Classic Blue Denim</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">5%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹949</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(19, 'Classic Blue Denim', 949, '/mens/p7.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p8.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Jet Black Relaxed Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">28%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹649</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(
+                      20,
+                      'Jet Black Relaxed Pants',
+                      649,
+                      '/mens/p8.jpg',
+                    )
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p9.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Charcoal Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">16%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹749</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="addToCart(21, 'Charcoal Pants', 749, '/mens/p9.jpg')"
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p11.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Indigo Everyday Jeans</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">22%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(22, 'Indigo Everyday Jeans', 699, '/mens/p11.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p12.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Slate Grey Pants</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">28%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹649</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(23, 'Slate Grey Pants', 649, '/mens/p12.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/p13.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Vintage Wash Denim</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">22%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(24, 'Vintage Wash Denim', 699, '/mens/p13.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="mens-tshirts">
+          <!-- tshirts -->
+          <h2>MENS T-SHIRTS</h2>
+          <div class="collection_card">
+            <div class="collection">
+              <img src="/mens/t1.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Light Grey TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹399</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(25, 'Light Grey TShirt', 399, '/mens/t1.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t3.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Classic Black TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹449</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(26, 'Classic Black TShirt', 449, '/mens/t3.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t6.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Dark Green TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">30%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹349</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(27, 'Dark Green TShirt', 349, '/mens/t6.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t2.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Pure White TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹399</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(28, 'Pure White TShirt', 399, '/mens/t2.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t7.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Beige Full Sleeve</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹449</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(29, 'Beige Full Sleeve', 449, '/mens/t7.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t8.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Olive Full Sleeve</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">30%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹349</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(30, 'Olive Full Sleeve', 349, '/mens/t8.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t10.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Maroon Full Sleeve</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">12%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹439</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(31, 'Maroon Full Sleeve', 439, '/mens/t10.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t15.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Peach Casual TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹399</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(32, 'Peach Casual TShirt', 399, '/mens/t15.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t11.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Striped Casual TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">30%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹349</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(33, 'Striped Casual TShirt', 349, '/mens/t11.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t12.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Brown Polo TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹449</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(34, 'Brown Polo TShirt', 449, '/mens/t12.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t14.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Dark Brown TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">8%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹469</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(35, 'Dark Brown TShirt', 469, '/mens/t14.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/t13.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Basic Black TShirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >499</span
+                  >
+                  <span style="font-family: sans-serif">₹399</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(36, 'Basic Black TShirt', 399, '/mens/t13.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="hoodie" id="hoodies & Sweatshirt">
+          <!-- hoodie -->
+          <h2>HOODIE & SWEATSHIRT</h2>
+          <div class="collection_card">
+            <div class="collection">
+              <img src="/mens/h1.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Urban Stone Hoodie</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">16%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹749</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(37, 'Urban Stone Hoodie', 749, '/mens/h1.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/h3.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Midnight Core Hoodie</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹899</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(38, 'Midnight Core Hoodie', 899, '/mens/h3.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/h2.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Forest Fade Hoodie</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">20%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹799</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(39, 'Forest Fade Hoodie', 799, '/mens/h2.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/h4.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Ivory Drift Hoodie</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">15%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹849</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(40, 'Ivory Drift Hoodie', 849, '/mens/h4.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/h5.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Ash Street Hoodie</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">23%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(41, 'Ash Street Hoodie', 699, '/mens/h5.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/h6.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Olive Pulse Hoodie</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">10%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹899</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(42, 'Olive Pulse Hoodie', 899, '/mens/h6.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/s1.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Beige Sweatshirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">5%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >999</span
+                  >
+                  <span style="font-family: sans-serif">₹949</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(43, 'Beige Sweatshirt', 949, '/mens/s1.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/s3.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Light Grey Sweatshirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">28%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹649</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(44, 'Light Grey Sweatshirt', 649, '/mens/s3.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/s4.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Charcoal Sweatshirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">16%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹749</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(45, 'Charcoal Sweatshirt', 749, '/mens/s4.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/s2.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Off-White Sweatshirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">22%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(46, 'Off-White Sweatshirt', 699, '/mens/s2.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/s6.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Grey Sweatshirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">28%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹649</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(47, 'Grey Sweatshirt', 649, '/mens/s6.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="collection">
+              <img src="/mens/s7.jpg" width="200px" height="200px" />
+              <span style="font-weight: 600; margin-top: 5px; width: 200px"
+                >Maroon Sweatshirt</span
+              >
+
+              <div class="pricebox">
+                <div class="price">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                      d="M169.4 502.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 402.7 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 370.7-105.4-105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                    />
+                  </svg>
+                  <span style="color: green">22%</span>
+                  <span style="text-decoration: line-through; font-weight: 400"
+                    >899</span
+                  >
+                  <span style="font-family: sans-serif">₹699</span>
+                </div>
+                <div class="size">
+                  <span onclick="selectSize(this)" data-size="S">S</span>
+                  <span onclick="selectSize(this)" data-size="M">M</span>
+                  <span onclick="selectSize(this)" data-size="L">L</span>
+                  <span onclick="selectSize(this)" data-size="XL">XL</span>
+                  <span onclick="selectSize(this)" data-size="XXL" class="xxl"
+                    >XXL</span
+                  >
+                </div>
+                <div
+                  class="atc"
+                  onclick="
+                    addToCart(48, 'Maroon Sweatshirt', 699, '/mens/s7.jpg')
+                  "
+                >
+                  <span>Add to cart</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer_box">
+      <div class="footer">
+        <div class="footer-container">
+          <div>
+            <h3>SHOP</h3>
+            <div class="shop">
+              <span>Men</span>
+              <span>Ladies</span>
+              <span>Kids</span>
+              <span>Home</span>
+            </div>
+          </div>
+
+          <div>
+            <h3>HELP</h3>
+            <div class="help">
+              <span>Customer Service</span>
+              <span>My Baggy</span>
+              <span>Find a store</span>
+              <span>Legal & privacy</span>
+              <span>Contact</span>
+              <span>Secure shopping</span>
+              <span>Cookie Notice</span>
+              <span>Cookie Settings</span>
+            </div>
+          </div>
+
+          <div>
+            <h3>CORPORATE INFO</h3>
+            <div class="Corporate-info">
+              <span>Career at Baggy</span>
+              <span>About Baggy group</span>
+              <span>Sustainability Baggy Group</span>
+              <span>Press</span>
+              <span>Investor relations</span>
+              <span>Corporate governance</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="stayUpdate-head">STAY UP TO DATE</h3>
+            <div class="icone-box">
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  viewBox="0 0 16 17"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.353 1.415C.44 2.339.124 3.487.065 4.793c-.036.815-.25 6.973.37 8.587a4.06 4.06 0 0 0 2.329 2.353c.506.2 1.084.335 1.932.374 7.088.325 9.716.148 10.824-2.727.197-.511.332-1.096.37-1.953.323-7.201-.053-8.762-1.289-10.012C13.621.424 12.47-.25 4.697.113c-1.303.06-2.431.382-3.343 1.302Zm1.93 12.967a2.621 2.621 0 0 1-1.512-1.527c-.473-1.226-.316-7.054-.274-7.997.042-.924.226-1.768.87-2.42.796-.804 1.824-1.198 8.827-.878.914.042 1.749.228 2.394.878.796.805 1.19 1.855.869 8.923-.035.785-.165 1.21-.274 1.494-.72 1.871-2.378 2.131-9.423 1.804-.776-.036-1.197-.167-1.478-.277Zm8.944-9.602a.961.961 0 0 0 .956-.965.961.961 0 0 0-.956-.966.96.96 0 0 0-.955.966.96.96 0 0 0 .955.965Zm-4.25 7.461c2.258 0 4.088-1.85 4.088-4.132 0-2.281-1.83-4.13-4.088-4.13-2.257 0-4.087 1.849-4.087 4.13 0 2.282 1.83 4.132 4.087 4.132Zm0-6.813c1.466 0 2.654 1.201 2.654 2.682 0 1.48-1.188 2.682-2.654 2.682-1.465 0-2.653-1.201-2.653-2.682 0-1.48 1.188-2.682 2.654-2.682Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="9"
+                  height="19"
+                  viewBox="0 0 9 19"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.14 18.239V10.03h2.458L9 6.384H6.14V4.607c0-.94.023-1.871 1.318-1.871H8.77V.128C8.77.088 7.643 0 6.503 0 4.122 0 2.631 1.511 2.631 4.286v2.098H0v3.647h2.631v8.208H6.14Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 16 14"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.032 13.604c6.038 0 9.34-4.99 9.34-9.317 0-.142 0-.284-.01-.424A6.659 6.659 0 0 0 16 2.168a6.55 6.55 0 0 1-1.885.515A3.291 3.291 0 0 0 15.558.872c-.644.381-1.35.65-2.084.795a3.292 3.292 0 0 0-4.645-.142 3.274 3.274 0 0 0-.95 3.129 9.331 9.331 0 0 1-6.765-3.422A3.272 3.272 0 0 0 2.13 5.604a3.264 3.264 0 0 1-1.49-.41v.042a3.279 3.279 0 0 0 2.634 3.21c-.484.131-.99.15-1.482.055a3.285 3.285 0 0 0 3.066 2.275A6.597 6.597 0 0 1 0 12.133a9.313 9.313 0 0 0 5.032 1.469"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  viewBox="0 0 16 17"
+                  class="social-icone"
+                >
+                  <path
+                    d="M16 1.296v13.647a1.176 1.176 0 0 1-1.177 1.176H1.176A1.177 1.177 0 0 1 0 14.943V1.296A1.176 1.176 0 0 1 1.176.119h13.647A1.176 1.176 0 0 1 16 1.296ZM4.706 6.237H2.353v7.53h2.353v-7.53Zm.212-2.588a1.355 1.355 0 0 0-1.346-1.365h-.043a1.365 1.365 0 1 0 0 2.73A1.355 1.355 0 0 0 4.918 3.69V3.65Zm8.73 5.543c0-2.263-1.44-3.143-2.871-3.143a2.682 2.682 0 0 0-2.382 1.214H8.33V6.237H6.118v7.53H8.47V9.761a1.562 1.562 0 0 1 1.411-1.685h.09c.748 0 1.303.47 1.303 1.656v4.033h2.353l.02-4.574Z"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  viewBox="0 0 16 17"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.9.013C3.52.013 0 3.608 0 8.086a8.083 8.083 0 0 0 4.714 7.393c0-1.514-.01-1.318 1.128-6.24-.625-1.28-.139-3.392 1.262-3.392 1.944 0 .623 2.92.398 4.07-.199.882.465 1.56 1.262 1.56 1.527 0 2.522-1.967 2.522-4.273 0-1.764-1.194-3.053-3.252-3.053-3.66 0-4.588 4.13-3.32 5.426.32.49 0 .513 0 1.154-.221.677-1.992-.307-1.992-2.849 0-2.306 1.86-5.02 5.644-5.02 2.987 0 4.979 2.239 4.979 4.613 0 3.188-1.727 5.495-4.249 5.495-.863 0-1.66-.475-1.926-1.018-.482 1.901-.58 2.865-1.328 3.934.73.204 1.461.34 2.258.34 4.382 0 7.9-3.596 7.9-8.072-.198-4.546-3.718-8.14-8.1-8.14Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer2">
+        <div class="footer2-img">
+          <img src="/img2/icon-GooglePlay_1_zixjxl.png" />
+          <img src="/img2/icon-AppStore_lg30tv.png" />
+        </div>
+        <span>© Baggy India Ltd, 2026. All Rights Reserved.</span>
+      </div>
+    </div>
+
+    <!-- mobile footer -->
+
+    <div class="mb-foot">
+      <div class="mb-footer">
+        <div class="mb-support" onclick="openSupport()">
+          <h3>SUPPORT</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="support-footer">
+          <div class="support-footer-container">
+            <ul>
+              <li>Contact us</li>
+              <li>Promotions & Sale</li>
+              <li>Track Order</li>
+              <li>Care</li>
+              <li>Initiate Return / Exchange</li>
+              <li>outfits</li>
+              <li>Nitro</li>
+              <li>Hyrox</li>
+              <li>Cookie Settings</li>
+            </ul>
+            <ul>
+              <li>FAQs</li>
+              <li>My Account</li>
+              <li>Exchange & Return Policy</li>
+              <li>Privacy Policy</li>
+              <li>Terms & Conditions</li>
+              <li>Sitemap</li>
+              <li>Shirts for Men</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-about" onclick="openAbout()">
+          <h3>ABOUT</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="about-footer">
+          <ul>
+            <li>Company</li>
+            <li>What is Hyprox?</li>
+            <li>BAGGY go wild</li>
+            <li>Corporate News</li>
+            <li>Press Center</li>
+            <li>Investors</li>
+            <li>Sustainability</li>
+            <li>Careers</li>
+            <li>Store Locator</li>
+          </ul>
+        </div>
+        <div class="mb-stay" onclick="openStayUpdate()">
+          <h3>STAY UP TO DATE</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="icone-box-mb-container">
+          <div class="icone-box-mb">
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                viewBox="0 0 16 17"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.353 1.415C.44 2.339.124 3.487.065 4.793c-.036.815-.25 6.973.37 8.587a4.06 4.06 0 0 0 2.329 2.353c.506.2 1.084.335 1.932.374 7.088.325 9.716.148 10.824-2.727.197-.511.332-1.096.37-1.953.323-7.201-.053-8.762-1.289-10.012C13.621.424 12.47-.25 4.697.113c-1.303.06-2.431.382-3.343 1.302Zm1.93 12.967a2.621 2.621 0 0 1-1.512-1.527c-.473-1.226-.316-7.054-.274-7.997.042-.924.226-1.768.87-2.42.796-.804 1.824-1.198 8.827-.878.914.042 1.749.228 2.394.878.796.805 1.19 1.855.869 8.923-.035.785-.165 1.21-.274 1.494-.72 1.871-2.378 2.131-9.423 1.804-.776-.036-1.197-.167-1.478-.277Zm8.944-9.602a.961.961 0 0 0 .956-.965.961.961 0 0 0-.956-.966.96.96 0 0 0-.955.966.96.96 0 0 0 .955.965Zm-4.25 7.461c2.258 0 4.088-1.85 4.088-4.132 0-2.281-1.83-4.13-4.088-4.13-2.257 0-4.087 1.849-4.087 4.13 0 2.282 1.83 4.132 4.087 4.132Zm0-6.813c1.466 0 2.654 1.201 2.654 2.682 0 1.48-1.188 2.682-2.654 2.682-1.465 0-2.653-1.201-2.653-2.682 0-1.48 1.188-2.682 2.654-2.682Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="9"
+                height="19"
+                viewBox="0 0 9 19"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6.14 18.239V10.03h2.458L9 6.384H6.14V4.607c0-.94.023-1.871 1.318-1.871H8.77V.128C8.77.088 7.643 0 6.503 0 4.122 0 2.631 1.511 2.631 4.286v2.098H0v3.647h2.631v8.208H6.14Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 16 14"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.032 13.604c6.038 0 9.34-4.99 9.34-9.317 0-.142 0-.284-.01-.424A6.659 6.659 0 0 0 16 2.168a6.55 6.55 0 0 1-1.885.515A3.291 3.291 0 0 0 15.558.872c-.644.381-1.35.65-2.084.795a3.292 3.292 0 0 0-4.645-.142 3.274 3.274 0 0 0-.95 3.129 9.331 9.331 0 0 1-6.765-3.422A3.272 3.272 0 0 0 2.13 5.604a3.264 3.264 0 0 1-1.49-.41v.042a3.279 3.279 0 0 0 2.634 3.21c-.484.131-.99.15-1.482.055a3.285 3.285 0 0 0 3.066 2.275A6.597 6.597 0 0 1 0 12.133a9.313 9.313 0 0 0 5.032 1.469"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                viewBox="0 0 16 17"
+                class="social-icone"
+              >
+                <path
+                  d="M16 1.296v13.647a1.176 1.176 0 0 1-1.177 1.176H1.176A1.177 1.177 0 0 1 0 14.943V1.296A1.176 1.176 0 0 1 1.176.119h13.647A1.176 1.176 0 0 1 16 1.296ZM4.706 6.237H2.353v7.53h2.353v-7.53Zm.212-2.588a1.355 1.355 0 0 0-1.346-1.365h-.043a1.365 1.365 0 1 0 0 2.73A1.355 1.355 0 0 0 4.918 3.69V3.65Zm8.73 5.543c0-2.263-1.44-3.143-2.871-3.143a2.682 2.682 0 0 0-2.382 1.214H8.33V6.237H6.118v7.53H8.47V9.761a1.562 1.562 0 0 1 1.411-1.685h.09c.748 0 1.303.47 1.303 1.656v4.033h2.353l.02-4.574Z"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                viewBox="0 0 16 17"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.9.013C3.52.013 0 3.608 0 8.086a8.083 8.083 0 0 0 4.714 7.393c0-1.514-.01-1.318 1.128-6.24-.625-1.28-.139-3.392 1.262-3.392 1.944 0 .623 2.92.398 4.07-.199.882.465 1.56 1.262 1.56 1.527 0 2.522-1.967 2.522-4.273 0-1.764-1.194-3.053-3.252-3.053-3.66 0-4.588 4.13-3.32 5.426.32.49 0 .513 0 1.154-.221.677-1.992-.307-1.992-2.849 0-2.306 1.86-5.02 5.644-5.02 2.987 0 4.979 2.239 4.979 4.613 0 3.188-1.727 5.495-4.249 5.495-.863 0-1.66-.475-1.926-1.018-.482 1.901-.58 2.865-1.328 3.934.73.204 1.461.34 2.258.34 4.382 0 7.9-3.596 7.9-8.072-.198-4.546-3.718-8.14-8.1-8.14Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="mb-explore" onclick="openExplore()">
+          <h3>EXPLORE</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="explore-footer">
+          <ul>
+            <li>New Arrivals</li>
+            <li>Best Sellers</li>
+            <li>Trending Now</li>
+            <li>Limited Edition</li>
+            <li>Offers / Deals</li>
+            <li>Style Guide</li>
+            <li>Lookbook</li>
+            <li>Blog/Fashion Tips</li>
+            <li>Our Community</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copy-right">
+        <span>© Baggy India Ltd, 2026. All Rights Reserved.</span>
+      </div>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>

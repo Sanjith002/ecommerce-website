@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!--navbar-->
+    <nav>
+      <h2 class="logo">Baggy</h2>
+
+      <div class="navbar">
+        <p class="navbarlink"><a href="index.html">HOME</a></p>
+        <p class="navbarlink"><a href="collections.html">COLLECTIONS</a></p>
+        <p class="navbarlink"><a href="login.html">SIGN IN</a></p>
+      </div>
+
+      <div class="navbar-menu">
+        <i class="fa-solid fa-bars" onclick="opennav()"></i>
+      </div>
+    </nav>
+
+    <!--side-navbar-->
+    <div class="side">
+      <p class="xicone">
+        <i class="fa-solid fa-xmark" onclick="closenav()"></i>
+      </p>
+
+      <div class="side-navbar">
+        <p class="side-navbar-link"><a href="index.html">HOME</a></p>
+        <p class="side-navbar-link">
+          <a href="collections.html">COLLECTIONS</a>
+        </p>
+        <p class="side-navbar-link"><a href="login.html">SIGN IN</a></p>
+      </div>
+    </div>
+
+    <!-- CreateAccount -->
+    <div class="signup">
+      <div class="signup_box">
+        <h3 class="logUnderline">
+          <a href="login.html"><span id="signin"> SIGN IN</span></a> /
+          <a href="createAccount.html"
+            ><span id="createAc" class="active">CREATE ACCOUNT</span></a
+          >
+        </h3>
+        <form onsubmit="return checkPasswordMatch();">
+          <div class="userid">
+            <label for="user id">User Id</label>
+            <input type="text" name="user id" id="user id" required />
+          </div>
+          <div class="email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+          <div class="password">
+            <label for="password">Create Password</label>
+            <input type="password" name="password" id="password" required />
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="checkbox"
+                onchange="toggleChangePassword()"
+              />
+              <label for="checkbox">Show Password</label>
+            </div>
+          </div>
+          <div class="password">
+            <label for="password">Re-Enter Password</label>
+            <input type="password" name="password" id="password2" required />
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="checkbox2"
+                onchange="toggleChangePassword2()"
+              />
+              <label for="checkbox">Show Password</label>
+            </div>
+          </div>
+          <button type="submit">Create</button>
+        </form>
+        <div class="terms">
+          By continuing, you agree to Baggy's <span>Conditions of Use</span> and
+          <span>Privacy Notice.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+
+    <div class="footer_box">
+      <div class="footer">
+        <div class="footer-container">
+          <div>
+            <h3>SHOP</h3>
+            <div class="shop">
+              <span>Men</span>
+              <span>Ladies</span>
+              <span>Kids</span>
+              <span>Home</span>
+            </div>
+          </div>
+
+          <div>
+            <h3>HELP</h3>
+            <div class="help">
+              <span>Customer Service</span>
+              <span>My Baggy</span>
+              <span>Find a store</span>
+              <span>Legal & privacy</span>
+              <span>Contact</span>
+              <span>Secure shopping</span>
+              <span>Cookie Notice</span>
+              <span>Cookie Settings</span>
+            </div>
+          </div>
+
+          <div>
+            <h3>CORPORATE INFO</h3>
+            <div class="Corporate-info">
+              <span>Career at Baggy</span>
+              <span>About Baggy group</span>
+              <span>Sustainability Baggy Group</span>
+              <span>Press</span>
+              <span>Investor relations</span>
+              <span>Corporate governance</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="stayUpdate-head">STAY UP TO DATE</h3>
+            <div class="icone-box">
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  viewBox="0 0 16 17"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.353 1.415C.44 2.339.124 3.487.065 4.793c-.036.815-.25 6.973.37 8.587a4.06 4.06 0 0 0 2.329 2.353c.506.2 1.084.335 1.932.374 7.088.325 9.716.148 10.824-2.727.197-.511.332-1.096.37-1.953.323-7.201-.053-8.762-1.289-10.012C13.621.424 12.47-.25 4.697.113c-1.303.06-2.431.382-3.343 1.302Zm1.93 12.967a2.621 2.621 0 0 1-1.512-1.527c-.473-1.226-.316-7.054-.274-7.997.042-.924.226-1.768.87-2.42.796-.804 1.824-1.198 8.827-.878.914.042 1.749.228 2.394.878.796.805 1.19 1.855.869 8.923-.035.785-.165 1.21-.274 1.494-.72 1.871-2.378 2.131-9.423 1.804-.776-.036-1.197-.167-1.478-.277Zm8.944-9.602a.961.961 0 0 0 .956-.965.961.961 0 0 0-.956-.966.96.96 0 0 0-.955.966.96.96 0 0 0 .955.965Zm-4.25 7.461c2.258 0 4.088-1.85 4.088-4.132 0-2.281-1.83-4.13-4.088-4.13-2.257 0-4.087 1.849-4.087 4.13 0 2.282 1.83 4.132 4.087 4.132Zm0-6.813c1.466 0 2.654 1.201 2.654 2.682 0 1.48-1.188 2.682-2.654 2.682-1.465 0-2.653-1.201-2.653-2.682 0-1.48 1.188-2.682 2.654-2.682Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="9"
+                  height="19"
+                  viewBox="0 0 9 19"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.14 18.239V10.03h2.458L9 6.384H6.14V4.607c0-.94.023-1.871 1.318-1.871H8.77V.128C8.77.088 7.643 0 6.503 0 4.122 0 2.631 1.511 2.631 4.286v2.098H0v3.647h2.631v8.208H6.14Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 16 14"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.032 13.604c6.038 0 9.34-4.99 9.34-9.317 0-.142 0-.284-.01-.424A6.659 6.659 0 0 0 16 2.168a6.55 6.55 0 0 1-1.885.515A3.291 3.291 0 0 0 15.558.872c-.644.381-1.35.65-2.084.795a3.292 3.292 0 0 0-4.645-.142 3.274 3.274 0 0 0-.95 3.129 9.331 9.331 0 0 1-6.765-3.422A3.272 3.272 0 0 0 2.13 5.604a3.264 3.264 0 0 1-1.49-.41v.042a3.279 3.279 0 0 0 2.634 3.21c-.484.131-.99.15-1.482.055a3.285 3.285 0 0 0 3.066 2.275A6.597 6.597 0 0 1 0 12.133a9.313 9.313 0 0 0 5.032 1.469"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  viewBox="0 0 16 17"
+                  class="social-icone"
+                >
+                  <path
+                    d="M16 1.296v13.647a1.176 1.176 0 0 1-1.177 1.176H1.176A1.177 1.177 0 0 1 0 14.943V1.296A1.176 1.176 0 0 1 1.176.119h13.647A1.176 1.176 0 0 1 16 1.296ZM4.706 6.237H2.353v7.53h2.353v-7.53Zm.212-2.588a1.355 1.355 0 0 0-1.346-1.365h-.043a1.365 1.365 0 1 0 0 2.73A1.355 1.355 0 0 0 4.918 3.69V3.65Zm8.73 5.543c0-2.263-1.44-3.143-2.871-3.143a2.682 2.682 0 0 0-2.382 1.214H8.33V6.237H6.118v7.53H8.47V9.761a1.562 1.562 0 0 1 1.411-1.685h.09c.748 0 1.303.47 1.303 1.656v4.033h2.353l.02-4.574Z"
+                  />
+                </svg>
+              </div>
+              <div class="icone-box-img1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  viewBox="0 0 16 17"
+                  class="social-icone"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.9.013C3.52.013 0 3.608 0 8.086a8.083 8.083 0 0 0 4.714 7.393c0-1.514-.01-1.318 1.128-6.24-.625-1.28-.139-3.392 1.262-3.392 1.944 0 .623 2.92.398 4.07-.199.882.465 1.56 1.262 1.56 1.527 0 2.522-1.967 2.522-4.273 0-1.764-1.194-3.053-3.252-3.053-3.66 0-4.588 4.13-3.32 5.426.32.49 0 .513 0 1.154-.221.677-1.992-.307-1.992-2.849 0-2.306 1.86-5.02 5.644-5.02 2.987 0 4.979 2.239 4.979 4.613 0 3.188-1.727 5.495-4.249 5.495-.863 0-1.66-.475-1.926-1.018-.482 1.901-.58 2.865-1.328 3.934.73.204 1.461.34 2.258.34 4.382 0 7.9-3.596 7.9-8.072-.198-4.546-3.718-8.14-8.1-8.14Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer2">
+        <div class="footer2-img">
+          <img src="/img2/icon-GooglePlay_1_zixjxl.png" />
+          <img src="/img2/icon-AppStore_lg30tv.png" />
+        </div>
+        <span>© Baggy India Ltd, 2026. All Rights Reserved.</span>
+      </div>
+    </div>
+
+    <!-- mobile footer -->
+
+    <div class="mb-foot">
+      <div class="mb-footer">
+        <div class="mb-support" onclick="openSupport()">
+          <h3>SUPPORT</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="support-footer">
+          <div class="support-footer-container">
+            <ul>
+              <li>Contact us</li>
+              <li>Promotions & Sale</li>
+              <li>Track Order</li>
+              <li>Care</li>
+              <li>Initiate Return / Exchange</li>
+              <li>outfits</li>
+              <li>Nitro</li>
+              <li>Hyrox</li>
+              <li>Cookie Settings</li>
+            </ul>
+            <ul>
+              <li>FAQs</li>
+              <li>My Account</li>
+              <li>Exchange & Return Policy</li>
+              <li>Privacy Policy</li>
+              <li>Terms & Conditions</li>
+              <li>Sitemap</li>
+              <li>Shirts for Men</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-about" onclick="openAbout()">
+          <h3>ABOUT</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="about-footer">
+          <ul>
+            <li>Company</li>
+            <li>What is Hyprox?</li>
+            <li>BAGGY go wild</li>
+            <li>Corporate News</li>
+            <li>Press Center</li>
+            <li>Investors</li>
+            <li>Sustainability</li>
+            <li>Careers</li>
+            <li>Store Locator</li>
+          </ul>
+        </div>
+        <div class="mb-stay" onclick="openStayUpdate()">
+          <h3>STAY UP TO DATE</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="icone-box-mb-container">
+          <div class="icone-box-mb">
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                viewBox="0 0 16 17"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.353 1.415C.44 2.339.124 3.487.065 4.793c-.036.815-.25 6.973.37 8.587a4.06 4.06 0 0 0 2.329 2.353c.506.2 1.084.335 1.932.374 7.088.325 9.716.148 10.824-2.727.197-.511.332-1.096.37-1.953.323-7.201-.053-8.762-1.289-10.012C13.621.424 12.47-.25 4.697.113c-1.303.06-2.431.382-3.343 1.302Zm1.93 12.967a2.621 2.621 0 0 1-1.512-1.527c-.473-1.226-.316-7.054-.274-7.997.042-.924.226-1.768.87-2.42.796-.804 1.824-1.198 8.827-.878.914.042 1.749.228 2.394.878.796.805 1.19 1.855.869 8.923-.035.785-.165 1.21-.274 1.494-.72 1.871-2.378 2.131-9.423 1.804-.776-.036-1.197-.167-1.478-.277Zm8.944-9.602a.961.961 0 0 0 .956-.965.961.961 0 0 0-.956-.966.96.96 0 0 0-.955.966.96.96 0 0 0 .955.965Zm-4.25 7.461c2.258 0 4.088-1.85 4.088-4.132 0-2.281-1.83-4.13-4.088-4.13-2.257 0-4.087 1.849-4.087 4.13 0 2.282 1.83 4.132 4.087 4.132Zm0-6.813c1.466 0 2.654 1.201 2.654 2.682 0 1.48-1.188 2.682-2.654 2.682-1.465 0-2.653-1.201-2.653-2.682 0-1.48 1.188-2.682 2.654-2.682Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="9"
+                height="19"
+                viewBox="0 0 9 19"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6.14 18.239V10.03h2.458L9 6.384H6.14V4.607c0-.94.023-1.871 1.318-1.871H8.77V.128C8.77.088 7.643 0 6.503 0 4.122 0 2.631 1.511 2.631 4.286v2.098H0v3.647h2.631v8.208H6.14Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 16 14"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.032 13.604c6.038 0 9.34-4.99 9.34-9.317 0-.142 0-.284-.01-.424A6.659 6.659 0 0 0 16 2.168a6.55 6.55 0 0 1-1.885.515A3.291 3.291 0 0 0 15.558.872c-.644.381-1.35.65-2.084.795a3.292 3.292 0 0 0-4.645-.142 3.274 3.274 0 0 0-.95 3.129 9.331 9.331 0 0 1-6.765-3.422A3.272 3.272 0 0 0 2.13 5.604a3.264 3.264 0 0 1-1.49-.41v.042a3.279 3.279 0 0 0 2.634 3.21c-.484.131-.99.15-1.482.055a3.285 3.285 0 0 0 3.066 2.275A6.597 6.597 0 0 1 0 12.133a9.313 9.313 0 0 0 5.032 1.469"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                viewBox="0 0 16 17"
+                class="social-icone"
+              >
+                <path
+                  d="M16 1.296v13.647a1.176 1.176 0 0 1-1.177 1.176H1.176A1.177 1.177 0 0 1 0 14.943V1.296A1.176 1.176 0 0 1 1.176.119h13.647A1.176 1.176 0 0 1 16 1.296ZM4.706 6.237H2.353v7.53h2.353v-7.53Zm.212-2.588a1.355 1.355 0 0 0-1.346-1.365h-.043a1.365 1.365 0 1 0 0 2.73A1.355 1.355 0 0 0 4.918 3.69V3.65Zm8.73 5.543c0-2.263-1.44-3.143-2.871-3.143a2.682 2.682 0 0 0-2.382 1.214H8.33V6.237H6.118v7.53H8.47V9.761a1.562 1.562 0 0 1 1.411-1.685h.09c.748 0 1.303.47 1.303 1.656v4.033h2.353l.02-4.574Z"
+                />
+              </svg>
+            </div>
+            <div class="icone-box-img1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                viewBox="0 0 16 17"
+                class="social-icone"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.9.013C3.52.013 0 3.608 0 8.086a8.083 8.083 0 0 0 4.714 7.393c0-1.514-.01-1.318 1.128-6.24-.625-1.28-.139-3.392 1.262-3.392 1.944 0 .623 2.92.398 4.07-.199.882.465 1.56 1.262 1.56 1.527 0 2.522-1.967 2.522-4.273 0-1.764-1.194-3.053-3.252-3.053-3.66 0-4.588 4.13-3.32 5.426.32.49 0 .513 0 1.154-.221.677-1.992-.307-1.992-2.849 0-2.306 1.86-5.02 5.644-5.02 2.987 0 4.979 2.239 4.979 4.613 0 3.188-1.727 5.495-4.249 5.495-.863 0-1.66-.475-1.926-1.018-.482 1.901-.58 2.865-1.328 3.934.73.204 1.461.34 2.258.34 4.382 0 7.9-3.596 7.9-8.072-.198-4.546-3.718-8.14-8.1-8.14Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="mb-explore" onclick="openExplore()">
+          <h3>EXPLORE</h3>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="explore-footer">
+          <ul>
+            <li>New Arrivals</li>
+            <li>Best Sellers</li>
+            <li>Trending Now</li>
+            <li>Limited Edition</li>
+            <li>Offers / Deals</li>
+            <li>Style Guide</li>
+            <li>Lookbook</li>
+            <li>Blog/Fashion Tips</li>
+            <li>Our Community</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copy-right">
+        <span>© Baggy India Ltd, 2026. All Rights Reserved.</span>
+      </div>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
